@@ -6,8 +6,26 @@ import re
 # ================= 設定區 =================
 EXCEL_URL = "https://docs.google.com/spreadsheets/d/1C28Y0nG-ii_gFDRMVw3y9Q5JfwJV_AjE/export?format=xlsx"
 
+import streamlit as st
+
 st.set_page_config(page_title="台股防區與獲利追蹤雷達", layout="wide")
-st.title("🎯 台股防區與獲利追蹤雷達 (買賣雙向獨立顯示)")
+
+# 加入這段 CSS 來優化手機與電腦版的 UI 留白與標題大小
+st.markdown("""
+    <style>
+        /* 縮小手機版頂部區塊的間距 */
+        .block-container {
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+        }
+        /* 調整標題在手機上的顯示大小 */
+        h1 {
+            font-size: 1.8rem !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.title("🎯 台股防區與獲利追蹤雷達")
 
 # ================= 核心函式 =================
 @st.cache_data(ttl=60)
